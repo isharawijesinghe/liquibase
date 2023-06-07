@@ -1,0 +1,81 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <!-- Create SiteReference table -->
+<!--    <changeSet id="create-site-reference-table" author="your_name">-->
+<!--        <createTable tableName="SiteReference">-->
+<!--            <column name="ID" type="INT" autoIncrement="true">-->
+<!--            </column>-->
+<!--            <column name="SiteReferenceId" type="VARCHAR(18)">-->
+<!--                <constraints nullable="false"/>-->
+<!--            </column>-->
+<!--            <column name="SiteReferenceName" type="VARCHAR(50)">-->
+<!--                <constraints nullable="false"/>-->
+<!--            </column>-->
+<!--            <column name="MerchantID" type="INT"/>-->
+<!--            <column name="DateCreated" type="DATETIME" defaultValueComputed="CURRENT_TIMESTAMP">-->
+<!--                <constraints nullable="false"/>-->
+<!--            </column>-->
+<!--            <column name="DateUpdated" type="DATETIME" defaultValueComputed="CURRENT_TIMESTAMP">-->
+<!--                <constraints nullable="false"/>-->
+<!--            </column>-->
+<!--        </createTable>-->
+<!--    </changeSet>-->
+
+<!--    &lt;!&ndash; Create Merchant table &ndash;&gt;-->
+<!--    <changeSet id="create-merchant-table" author="your_name">-->
+<!--        <createTable tableName="Merchant">-->
+<!--            <column name="ID" type="INT" autoIncrement="true">-->
+<!--                <constraints primaryKey="true" nullable="false"/>-->
+<!--            </column>-->
+<!--            <column name="MerchantId" type="VARCHAR(18)" >-->
+<!--                <constraints nullable="false"/>-->
+<!--            </column>-->
+<!--            <column name="Name" type="VARCHAR(255)" >-->
+<!--                <constraints nullable="false"/>-->
+<!--            </column>-->
+<!--            <column name="EmailAddress" type="VARCHAR(100)"/>-->
+<!--            <column name="BillingCountry" type="VARCHAR(30)"/>-->
+<!--            <column name="ShippingCountry" type="VARCHAR(30)"/>-->
+<!--            <column name="DateCreated" type="DATETIME" defaultValueComputed="CURRENT_TIMESTAMP">-->
+<!--                <constraints nullable="false"/>-->
+<!--            </column>-->
+<!--            <column name="DateUpdated" type="DATETIME" defaultValueComputed="CURRENT_TIMESTAMP">-->
+<!--             <constraints nullable="false"/>-->
+<!--            </column>-->
+<!--        </createTable>-->
+<!--    </changeSet>-->
+
+    <!-- Create Address table -->
+    <changeSet id="create-address-table" author="your_name">
+        <createTable tableName="Address">
+            <column name="ID" type="INT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="MerchantId" type="INT"/>
+            <column name="City" type="VARCHAR(50)"/>
+            <column name="Country" type="VARCHAR(30)"/>
+            <column name="CountryCode" type="VARCHAR(2)"/>
+            <column name="PostalCode" type="VARCHAR(30)"/>
+            <column name="State" type="VARCHAR(25)"/>
+            <column name="StateCode" type="VARCHAR(3)"/>
+            <column name="Street" type="VARCHAR(255)"/>
+            <column name="DateCreated" type="DATETIME" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DateUpdated" type="DATETIME" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!-- Add foreign key constraint from SiteReference to Merchant -->
+<!--    <changeSet id="add-foreign-key-constraint" author="your_name">-->
+<!--        <addForeignKeyConstraint baseTableName="SiteReference"-->
+<!--                                 baseColumnNames="MerchantID"-->
+<!--                                 constraintName="fk_site_reference_m"/>-->
+<!--    </changeSet>-->
+
+</databaseChangeLog>
